@@ -1,5 +1,5 @@
 //
-//  ScreenShotManger.swift
+//  ScreenCaptureManger.swift
 //  ScreenShotApp
 //
 //  Created by Ahmed Ragab on 07/06/2024.
@@ -39,10 +39,7 @@ enum ScreenShotTypes:CaseIterable {
 
 
 final class ScreenCaptureManger:ObservableObject {
-    
-    
-    
-    @Published var images:[NSImage] = [NSImage]()
+    @Published var images:[ImageContent] = [ImageContent]()
     private let screenCapturePath = "/usr/sbin/screencapture"
     
     func takeScreenShot(from type:ScreenShotTypes) {
@@ -61,6 +58,6 @@ final class ScreenCaptureManger:ObservableObject {
     private func getImagesFromPaste() {
         guard NSPasteboard.general.canReadItem(withDataConformingToTypes: NSImage.imageTypes) else {return}
         guard let image = NSImage(pasteboard: NSPasteboard.general) else {return}
-        self.images.append(image)
+        self.images.append(ImageContent(image: image))
     }
 }

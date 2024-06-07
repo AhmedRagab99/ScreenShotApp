@@ -11,7 +11,8 @@
 		D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E5F5D2C133E0200D0378B /* ContentView.swift */; };
 		D07E5F602C133E0300D0378B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E5F5F2C133E0300D0378B /* Assets.xcassets */; };
 		D07E5F632C133E0300D0378B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E5F622C133E0300D0378B /* Preview Assets.xcassets */; };
-		D0E9E0C82C1347E200BD8FFC /* ScreenShotManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0C72C1347E200BD8FFC /* ScreenShotManger.swift */; };
+		D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */; };
+		D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +22,8 @@
 		D07E5F5F2C133E0300D0378B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D07E5F622C133E0300D0378B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenShotApp.entitlements; sourceTree = "<group>"; };
-		D0E9E0C72C1347E200BD8FFC /* ScreenShotManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotManger.swift; sourceTree = "<group>"; };
+		D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Funcitons.swift"; sourceTree = "<group>"; };
+		D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +56,13 @@
 		D07E5F5A2C133E0200D0378B /* ScreenShotApp */ = {
 			isa = PBXGroup;
 			children = (
-				D0E9E0C72C1347E200BD8FFC /* ScreenShotManger.swift */,
+				D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */,
 				D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */,
 				D07E5F5D2C133E0200D0378B /* ContentView.swift */,
 				D07E5F5F2C133E0300D0378B /* Assets.xcassets */,
 				D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */,
 				D07E5F612C133E0300D0378B /* Preview Content */,
+				D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */,
 			);
 			path = ScreenShotApp;
 			sourceTree = "<group>";
@@ -142,7 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0E9E0C82C1347E200BD8FFC /* ScreenShotManger.swift in Sources */,
+				D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */,
+				D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */,
 				D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */,
 				D07E5F5C2C133E0200D0378B /* ScreenShotAppApp.swift in Sources */,
 			);

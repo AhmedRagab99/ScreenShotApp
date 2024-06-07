@@ -7,25 +7,59 @@
 
 import SwiftUI
 
-
+struct ImageContent {
+    var image:NSImage
+    var id = UUID()
+}
 struct ContentView: View {
     @StateObject private var manger  = ScreenCaptureManger()
-    @State  private var selection:ScreenShotTypes = .full
+    @State private var overlayWindow: NSWindow?
+
     var body: some View {
         VStack {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 200, maximum: 500))], content: {
-                    ForEach(manger.images,id:\.self){ image in
-                        Image(nsImage: image)
-                            .resizable()
-                            .scaledToFit()
-                            .draggable(image)
+                    ForEach(manger.images,id:\.id){ imageContent in
+                        VStack {
+                            Image(nsImage: imageContent.image)
+                                .resizable()
+                                .scaledToFit()
+                                .draggable(imageContent.image)
+                            Text(imageContent.id.description)
+                                .font(.title)
+                        }
                     }
                 })
             }
             
             
+            
+            
             HStack {
+                Button("close window") {
+                    let application = NSApplication.shared
+
+                    // Filter visible windows
+                    guard let overlayWindow = overlayWindow else {return}
+                    overlayWindow.close()
+                }
+                
+                Button("open overlays window") {
+                    manger.images.forEach { imageContent in
+                        var position = CGPoint(x: 50, y: 100)
+                        if let windowPostion = getWindowPostionBy(id: imageContent.id.description) {
+                            position = CGPoint(x: windowPostion.x, y: windowPostion.y + 100)
+                        }
+                        
+                        let overlayView = OverlayView(text: "Top Left Overlay", image: imageContent.image, id: imageContent.id.description)
+                        overlayWindow = createOverlayWindow(with: overlayView, id: imageContent.id.description, at: position)
+                        overlayWindow?.makeKeyAndOrderFront(nil)
+                    }
+                }
+                
+                Button("create new window") {
+                    openNewWindow(with: ContentView(), id: "newID",title: "new content view window")
+                }
                 Button ("Make a full screenShot") {
                     manger.takeScreenShot(from: .full)
                 }
@@ -40,6 +74,36 @@ struct ContentView: View {
         .padding()
     }
 }
+import SwiftUI
+import AppKit
+
+struct OverlayView: View {
+    var text: String
+    var image:NSImage
+    var id:String
+
+    var body: some View {
+        VStack {
+            Text(text)
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.black.opacity(0.7))
+                .cornerRadius(10)
+            
+            Text(id)
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.black.opacity(0.7))
+                .cornerRadius(10)
+            Image(nsImage: image)
+                .resizable()
+                .scaledToFit()
+        }
+    }
+}
+
 
 #Preview {
     ContentView()
