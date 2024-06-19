@@ -84,19 +84,21 @@ struct ImageEditorButtonsView : View {
             
             VStack {
                 Button{
-                    let last = engine.lines.removeLast()
-                    engine.deletedLines.append(last)
+//                    let last = engine.lines.removeLast()
+//                    engine.deletedLines.append(last)
                 } label: {
                     Text("undo")
-                }.disabled(engine.lines.count == 0)
+                }
+//                .disabled(engine.lines.count == 0)
                 
                 
                 Button{
-                    let last = engine.deletedLines.removeLast()
-                    engine.lines.append(last)
+//                    let last = engine.deletedLines.removeLast()
+//                    engine.lines.append(last)
                 } label: {
                     Text("redo")
-                }.disabled(engine.deletedLines.count == 0)
+                }
+//                .disabled(engine.deletedLines.count == 0)
             }.padding(.top)
         }
         .padding()
@@ -105,13 +107,11 @@ struct ImageEditorButtonsView : View {
 }
 
 struct ImageEditorView: View {
-    
-    @State private var selectedLineWidth: CGFloat = 2
-    @State private var selectedColor: Color = .red
     @State private var isShowingTextInput = false
     @StateObject private var engine = DrawingEngine()
     var image:NSImage
-    
+    @State private var rectanglePosition: CGPoint = CGPoint(x: 0, y: 0)
+
     var body: some View {
         VStack {
             ImageEditorButtonsView(engine: engine, isShowingTextInput: $isShowingTextInput)
@@ -125,9 +125,16 @@ struct ImageEditorView: View {
                     .padding()
                 Canvas { context, size in
                     engine.draw(using: context, and: size)
+//                    let width = size.width - rectanglePosition.x
+//                    let height = size.height - rectanglePosition.y
+//                    // Draw the rectangle at the current position with calculated width and height
+//                    let rectangle = CGRect(x: rectanglePosition.x, y: rectanglePosition.y, width: width, height: height)
+//                    context.stroke(Path(rectangle), with: .color(.red), lineWidth: 2.0)
                 }
-                .gesture(DragGesture(minimumDistance: 0).onChanged({ value in
+                .gesture(DragGesture(minimumDistance: 0)
+                    .onChanged({ value in                        
                     engine.updateDragGestureOnChangedState(from: value)
+//                    rectanglePosition = value.location
                 }).onEnded({ value in
                     engine.updateDragGestureOnEndedState(using: value)
             }))
@@ -154,8 +161,8 @@ struct TextInputView: View {
                 }
                 Spacer()
                 Button("Done") {
-                    drawingEngine.text = inputText
-                    isShowing = false
+//                    $drawingEngine. = inputText
+//                    isShowing = false
                 }
             }
             .padding()
