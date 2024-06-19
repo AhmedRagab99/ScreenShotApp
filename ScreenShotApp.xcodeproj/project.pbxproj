@@ -11,8 +11,11 @@
 		D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E5F5D2C133E0200D0378B /* ContentView.swift */; };
 		D07E5F602C133E0300D0378B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E5F5F2C133E0300D0378B /* Assets.xcassets */; };
 		D07E5F632C133E0300D0378B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E5F622C133E0300D0378B /* Preview Assets.xcassets */; };
+		D09C9F0D2C23282B00FAA8A2 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */; };
+		D09C9F0F2C232CE700FAA8A2 /* DrawingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */; };
 		D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */; };
 		D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */; };
+		D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +25,11 @@
 		D07E5F5F2C133E0300D0378B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D07E5F622C133E0300D0378B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenShotApp.entitlements; sourceTree = "<group>"; };
+		D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorView.swift; sourceTree = "<group>"; };
+		D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingEngine.swift; sourceTree = "<group>"; };
 		D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Funcitons.swift"; sourceTree = "<group>"; };
 		D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotManger.swift; sourceTree = "<group>"; };
+		D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		D07E5F5A2C133E0200D0378B /* ScreenShotApp */ = {
 			isa = PBXGroup;
 			children = (
+				D0FAB50F2C1DADC900C7A0D3 /* Views */,
 				D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */,
 				D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */,
 				D07E5F5D2C133E0200D0378B /* ContentView.swift */,
@@ -63,6 +70,7 @@
 				D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */,
 				D07E5F612C133E0300D0378B /* Preview Content */,
 				D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */,
+				D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */,
 			);
 			path = ScreenShotApp;
 			sourceTree = "<group>";
@@ -73,6 +81,15 @@
 				D07E5F622C133E0300D0378B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D0FAB50F2C1DADC900C7A0D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */,
+				D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */,
+				D09C9F0D2C23282B00FAA8A2 /* ImageEditorView.swift in Sources */,
 				D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */,
+				D09C9F0F2C232CE700FAA8A2 /* DrawingEngine.swift in Sources */,
+				D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */,
 				D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */,
 				D07E5F5C2C133E0200D0378B /* ScreenShotAppApp.swift in Sources */,
 			);
@@ -279,6 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ScreenShotApp/ScreenShotApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -292,6 +313,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedRagab.ScreenShotApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,6 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ScreenShotApp/ScreenShotApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -319,6 +342,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedRagab.ScreenShotApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

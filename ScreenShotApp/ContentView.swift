@@ -14,7 +14,7 @@ struct ImageContent {
 struct ContentView: View {
     @StateObject private var manger  = ScreenCaptureManger()
     @State private var overlayWindow: NSWindow?
-
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -38,23 +38,23 @@ struct ContentView: View {
             HStack {
                 Button("close window") {
                     let application = NSApplication.shared
-
+                    
                     // Filter visible windows
                     guard let overlayWindow = overlayWindow else {return}
                     overlayWindow.close()
                 }
                 
                 Button("open overlays window") {
-                    manger.images.forEach { imageContent in
-                        var position = CGPoint(x: 50, y: 100)
-                        if let windowPostion = getWindowPostionBy(id: imageContent.id.description) {
-                            position = CGPoint(x: windowPostion.x, y: windowPostion.y + 100)
-                        }
-                        
-                        let overlayView = OverlayView(text: "Top Left Overlay", image: imageContent.image, id: imageContent.id.description)
-                        overlayWindow = createOverlayWindow(with: overlayView, id: imageContent.id.description, at: position)
-                        overlayWindow?.makeKeyAndOrderFront(nil)
-                    }
+//                    manger.images.forEach { imageContent in
+//                        var position = CGPoint(x: 50, y: 100)
+//                        if let windowPostion = getWindowPostionBy(id: imageContent.id.description) {
+//                            position = CGPoint(x: windowPostion.x, y: windowPostion.y + 100)
+//                        }
+//                        
+//                        let overlayView = OverlayView(text: "Top Left Overlay", image: imageContent.image, id: imageContent.id.description)
+//                        overlayWindow = createOverlayWindow(with: overlayView, id: imageContent.id.description, at: position)
+//                        overlayWindow?.makeKeyAndOrderFront(nil)
+//                    }
                 }
                 
                 Button("create new window") {
@@ -74,36 +74,8 @@ struct ContentView: View {
         .padding()
     }
 }
-import SwiftUI
-import AppKit
 
-struct OverlayView: View {
-    var text: String
-    var image:NSImage
-    var id:String
-
-    var body: some View {
-        VStack {
-            Text(text)
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.black.opacity(0.7))
-                .cornerRadius(10)
-            
-            Text(id)
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.black.opacity(0.7))
-                .cornerRadius(10)
-            Image(nsImage: image)
-                .resizable()
-                .scaledToFit()
-        }
-    }
-}
-
+//
 
 #Preview {
     ContentView()

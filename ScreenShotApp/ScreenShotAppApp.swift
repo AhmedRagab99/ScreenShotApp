@@ -11,7 +11,8 @@ import SwiftUI
 struct ScreenShotAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            ImageEditorView(image: NSImage(resource: .test))
         }
     }
 }

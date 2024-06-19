@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ScreenCaptureKit
 
 enum ScreenShotTypes:CaseIterable {
     case full
