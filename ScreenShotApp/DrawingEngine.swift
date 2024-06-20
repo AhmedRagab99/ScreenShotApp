@@ -23,6 +23,7 @@ struct ShapeData: Identifiable {
     var color: Color
     var lineWidth: CGFloat
     var text: String? = nil // Used for text
+    var isSelected: Bool = false // Add this property
 }
 
 
@@ -30,9 +31,11 @@ struct ShapeData: Identifiable {
 final class DrawingEngine:ObservableObject {
     
     @Published var shapes = [ShapeData]()
+    var deletedShapes = [ShapeData]()
     @Published var selectedLineWidth: CGFloat = 2
     @Published var selectedColor: Color = .red
-    @Published var shapesData = [ShapeData]()
+    @Published var selectedShapeID: UUID? = nil
+    
     private var drawingType: DrawingType?
     private var startPoint: CGPoint?
     private var currentPoint: CGPoint?
@@ -40,6 +43,25 @@ final class DrawingEngine:ObservableObject {
     
     func setDrawingType(with type:DrawingType) {
         self.drawingType = type
+    }
+}
+
+//MARK: - undo and redo methods
+extension DrawingEngine {
+    func redoDrawing() {
+        let last = self.deletedShapes.removeLast()
+        shapes.append(last)
+    }
+    func redoValidation() -> Bool {
+        return deletedShapes.count == 0
+    }
+    
+    func undoDrawing() {
+        let last = shapes.removeLast()
+        deletedShapes.append(last)
+    }
+    func undoValidation() -> Bool {
+        return shapes.count == 0
     }
 }
 
@@ -69,6 +91,18 @@ extension DrawingEngine {
                 if let path = drawText(using: context, shape: shape) {
                     context.stroke(path, with: .color(shape.color),lineWidth: shape.lineWidth)
                 }
+            }
+        }
+    }
+    
+    
+    func selectShape(at point: CGPoint) {
+        for index in shapes.indices {
+            if let rect = shapes[index].rect, rect.contains(point) {
+                shapes[index].isSelected = true
+                selectedShapeID = shapes[index].id
+            } else {
+                shapes[index].isSelected = false
             }
         }
     }

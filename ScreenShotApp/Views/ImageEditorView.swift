@@ -67,8 +67,7 @@ struct ImageEditorButtonsView : View {
             }
             
             Button {
-                engine.setDrawingType(with: .text)
-                isShowingTextInput = true
+           
             } label: {
                 Image(systemName: "t.square.fill")
                     .imageScale(.large)
@@ -84,21 +83,19 @@ struct ImageEditorButtonsView : View {
             
             VStack {
                 Button{
-//                    let last = engine.lines.removeLast()
-//                    engine.deletedLines.append(last)
+                    engine.undoDrawing()
                 } label: {
                     Text("undo")
                 }
-//                .disabled(engine.lines.count == 0)
+                .disabled(engine.undoValidation())
                 
                 
                 Button{
-//                    let last = engine.deletedLines.removeLast()
-//                    engine.lines.append(last)
+                    engine.redoDrawing()
                 } label: {
                     Text("redo")
                 }
-//                .disabled(engine.deletedLines.count == 0)
+                .disabled(engine.redoValidation())
             }.padding(.top)
         }
         .padding()
@@ -110,62 +107,31 @@ struct ImageEditorView: View {
     @State private var isShowingTextInput = false
     @StateObject private var engine = DrawingEngine()
     var image:NSImage
-    @State private var rectanglePosition: CGPoint = CGPoint(x: 0, y: 0)
-
     var body: some View {
         VStack {
             ImageEditorButtonsView(engine: engine, isShowingTextInput: $isShowingTextInput)
-            
-           
-            
-            
+
             ZStack {
                 Image(nsImage: NSImage(resource: .test))
                     .resizable()
                     .padding()
                 Canvas { context, size in
                     engine.draw(using: context, and: size)
-//                    let width = size.width - rectanglePosition.x
-//                    let height = size.height - rectanglePosition.y
-//                    // Draw the rectangle at the current position with calculated width and height
-//                    let rectangle = CGRect(x: rectanglePosition.x, y: rectanglePosition.y, width: width, height: height)
-//                    context.stroke(Path(rectangle), with: .color(.red), lineWidth: 2.0)
                 }
-                .gesture(DragGesture(minimumDistance: 0)
-                    .onChanged({ value in                        
-                    engine.updateDragGestureOnChangedState(from: value)
-//                    rectanglePosition = value.location
-                }).onEnded({ value in
-                    engine.updateDragGestureOnEndedState(using: value)
-            }))
+                .onTapGesture { value in
+                    engine.selectShape(at: value)
+                }
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged({ value in
+                            engine.updateDragGestureOnChangedState(from: value)
+                        }).onEnded({ value in
+                            engine.updateDragGestureOnEndedState(using: value)
+                        })
+                )
+                
             }
-            .sheet(isPresented: $isShowingTextInput) {
-                       TextInputView(drawingEngine: engine, isShowing: $isShowingTextInput)
-                }
-        }
-    }
-}
-struct TextInputView: View {
-    @ObservedObject var drawingEngine: DrawingEngine
-    @Binding var isShowing: Bool
-    @State private var inputText = ""
-    
-    var body: some View {
-        VStack {
-            TextField("Enter text", text: $inputText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            HStack {
-                Button("Cancel") {
-                    isShowing = false
-                }
-                Spacer()
-                Button("Done") {
-//                    $drawingEngine. = inputText
-//                    isShowing = false
-                }
-            }
-            .padding()
+            
         }
     }
 }
