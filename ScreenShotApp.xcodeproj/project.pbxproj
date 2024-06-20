@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D05ED2182C2481F20062148B /* Modifiers+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05ED2172C2481F20062148B /* Modifiers+Helpers.swift */; };
-		D05ED21B2C24822B0062148B /* TapGestureRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05ED21A2C24822B0062148B /* TapGestureRepresentable.swift */; };
 		D07E5F5C2C133E0200D0378B /* ScreenShotAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */; };
 		D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E5F5D2C133E0200D0378B /* ContentView.swift */; };
 		D07E5F602C133E0300D0378B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E5F5F2C133E0300D0378B /* Assets.xcassets */; };
@@ -21,8 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D05ED2172C2481F20062148B /* Modifiers+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modifiers+Helpers.swift"; sourceTree = "<group>"; };
-		D05ED21A2C24822B0062148B /* TapGestureRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureRepresentable.swift; sourceTree = "<group>"; };
 		D07E5F582C133E0200D0378B /* ScreenShotApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenShotApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotAppApp.swift; sourceTree = "<group>"; };
 		D07E5F5D2C133E0200D0378B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,20 +43,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D05ED2162C2481E40062148B /* Modifiers */ = {
+		D05ED21C2C248EBB0062148B /* DrawingEngine */ = {
 			isa = PBXGroup;
 			children = (
-				D05ED2172C2481F20062148B /* Modifiers+Helpers.swift */,
+				D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */,
 			);
-			path = Modifiers;
-			sourceTree = "<group>";
-		};
-		D05ED2192C24820E0062148B /* uiKit+AppKit */ = {
-			isa = PBXGroup;
-			children = (
-				D05ED21A2C24822B0062148B /* TapGestureRepresentable.swift */,
-			);
-			path = "uiKit+AppKit";
+			path = DrawingEngine;
 			sourceTree = "<group>";
 		};
 		D07E5F4F2C133E0200D0378B = {
@@ -82,8 +70,7 @@
 		D07E5F5A2C133E0200D0378B /* ScreenShotApp */ = {
 			isa = PBXGroup;
 			children = (
-				D05ED2192C24820E0062148B /* uiKit+AppKit */,
-				D05ED2162C2481E40062148B /* Modifiers */,
+				D05ED21C2C248EBB0062148B /* DrawingEngine */,
 				D0FAB50F2C1DADC900C7A0D3 /* Views */,
 				D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */,
 				D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */,
@@ -92,7 +79,6 @@
 				D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */,
 				D07E5F612C133E0300D0378B /* Preview Content */,
 				D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */,
-				D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */,
 			);
 			path = ScreenShotApp;
 			sourceTree = "<group>";
@@ -186,8 +172,6 @@
 			files = (
 				D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */,
 				D09C9F0D2C23282B00FAA8A2 /* ImageEditorView.swift in Sources */,
-				D05ED2182C2481F20062148B /* Modifiers+Helpers.swift in Sources */,
-				D05ED21B2C24822B0062148B /* TapGestureRepresentable.swift in Sources */,
 				D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */,
 				D09C9F0F2C232CE700FAA8A2 /* DrawingEngine.swift in Sources */,
 				D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */,

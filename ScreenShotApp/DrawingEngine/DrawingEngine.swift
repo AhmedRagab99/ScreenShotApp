@@ -12,7 +12,6 @@ enum DrawingType {
     case rectangle
     case ellipse
     case circle
-    case text
     case arrow
 }
 
@@ -23,7 +22,6 @@ struct ShapeData: Identifiable {
     var rect: CGRect? = nil // Used for rectangles, ellipses, and text bounding box
     var color: Color
     var lineWidth: CGFloat
-    var text: String? = nil // Used for text
     var isSelected: Bool = false // Add this property
 }
 
@@ -90,22 +88,6 @@ extension DrawingEngine {
                 if let path = drawCircle(using: context, shape: shape) {
                     context.stroke(path, with: .color(shape.color),lineWidth: shape.lineWidth)
                 }
-            case .text:
-                if let path = drawText(using: context, shape: shape) {
-                    context.stroke(path, with: .color(shape.color),lineWidth: shape.lineWidth)
-                }
-            }
-        }
-    }
-    
-    
-    func selectShape(at point: CGPoint) {
-        for index in shapes.indices {
-            if let rect = shapes[index].rect, rect.contains(point) {
-                shapes[index].isSelected = true
-                selectedShapeID = shapes[index].id
-            } else {
-                shapes[index].isSelected = false
             }
         }
     }
@@ -223,6 +205,7 @@ extension DrawingEngine {
         currentPoint = value.location
         updateShapePath()
     }
+    
     private func addShape(type: DrawingType, at point: CGPoint) {
         let shape = ShapeData(type: type, color: selectedColor, lineWidth: selectedLineWidth)
         shapes.append(shape)
@@ -267,16 +250,16 @@ extension DrawingEngine {
     
     private func createArrowPath(for points: [CGPoint]) -> Path {
         var path = Path()
-
+        
         guard let firstPoint = points.first, let lastPoint = points.last else {
             return path
         }
-
+        
         // Calculate the arrowhead size and direction
         let arrowSize: CGFloat = 10  // Adjust arrowhead size as needed
         let direction = CGVector(dx: lastPoint.x - firstPoint.x, dy: lastPoint.y - firstPoint.y)
         let length = sqrt(direction.dx * direction.dx + direction.dy * direction.dy)
-
+        
         // Ensure the line has sufficient length to draw an arrow
         guard length > arrowSize else {
             // If the line is too short to draw an arrow, draw a straight line
@@ -284,10 +267,10 @@ extension DrawingEngine {
             path.addLine(to: lastPoint)
             return path
         }
-
+        
         // Normalize direction vector
         let normalizedDirection = CGVector(dx: direction.dx / length, dy: direction.dy / length)
-
+        
         // Calculate points for the arrowhead
         let arrowheadPoints = [
             CGPoint(x: lastPoint.x - normalizedDirection.dx * arrowSize + normalizedDirection.dy * arrowSize,
@@ -296,20 +279,20 @@ extension DrawingEngine {
             CGPoint(x: lastPoint.x - normalizedDirection.dx * arrowSize - normalizedDirection.dy * arrowSize,
                     y: lastPoint.y - normalizedDirection.dy * arrowSize + normalizedDirection.dx * arrowSize)
         ]
-
+        
         // Create path for arrow
         path.move(to: firstPoint)
         for point in points.dropFirst() {
             path.addLine(to: point)
         }
-
+        
         // Add arrowhead to the path
         path.addLines(arrowheadPoints)
-
+        
         return path
     }
-
-
+    
+    
     
     private func createCirclePath(center: CGPoint, radius: CGFloat) -> Path {
         let circleRect = CGRect(x: center.x - radius, y: center.y - radius, width: 2 * radius, height: 2 * radius)
