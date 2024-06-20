@@ -13,6 +13,7 @@ enum DrawingType {
     case ellipse
     case circle
     case text
+    case arrow
 }
 
 struct ShapeData: Identifiable {
@@ -75,6 +76,8 @@ extension DrawingEngine {
             switch shape.type {
             case .line:
                 drawLine(using: context, shape: shape)
+            case .arrow:
+                drawArrow(using: context, shape: shape)
             case .rectangle:
                 if let path = drawRectangle(using: context, shape: shape) {
                     context.stroke(path, with: .color(shape.color),lineWidth: shape.lineWidth)
@@ -113,6 +116,11 @@ extension DrawingEngine {
         let path = createPath(for: shape.points)
         context.stroke(path, with: .color(shape.color), style: StrokeStyle(lineWidth: shape.lineWidth, lineCap: .round, lineJoin: .round))
     }
+    private func drawArrow(using context:GraphicsContext, shape:ShapeData) {
+        guard shape.points.count > 0 else { return }
+        let path = createArrowPath(for: shape.points)
+        context.stroke(path, with: .color(shape.color), style: StrokeStyle(lineWidth: shape.lineWidth, lineCap: .round, lineJoin: .round))
+    }
     
     private func drawRectangle(using context: GraphicsContext, shape: ShapeData) -> Path? {
         guard let rect = shape.rect else { return nil}
@@ -148,7 +156,7 @@ extension DrawingEngine {
     func updateDragGestureOnChangedState(from value:DragGesture.Value) {
         guard let drawingType = drawingType else {return}
         switch drawingType {
-        case .line:
+        case .line,.arrow:
             updateLinePathOnChangedState(using: value)
         case .rectangle,.circle,.ellipse:
             updateShapesPathOnChangedState(using: value)
@@ -160,7 +168,7 @@ extension DrawingEngine {
     func updateDragGestureOnEndedState(using value: DragGesture.Value) {
         guard let drawingType = drawingType else {return}
         switch drawingType {
-        case .line:
+        case .line,.arrow:
             updateLineOnEndedState(using: value)
         case .ellipse,.circle,.rectangle,.text:
             updateShapesOnEndedState(using: value)
@@ -256,6 +264,52 @@ extension DrawingEngine {
         
         return path
     }
+    
+    private func createArrowPath(for points: [CGPoint]) -> Path {
+        var path = Path()
+
+        guard let firstPoint = points.first, let lastPoint = points.last else {
+            return path
+        }
+
+        // Calculate the arrowhead size and direction
+        let arrowSize: CGFloat = 10  // Adjust arrowhead size as needed
+        let direction = CGVector(dx: lastPoint.x - firstPoint.x, dy: lastPoint.y - firstPoint.y)
+        let length = sqrt(direction.dx * direction.dx + direction.dy * direction.dy)
+
+        // Ensure the line has sufficient length to draw an arrow
+        guard length > arrowSize else {
+            // If the line is too short to draw an arrow, draw a straight line
+            path.move(to: firstPoint)
+            path.addLine(to: lastPoint)
+            return path
+        }
+
+        // Normalize direction vector
+        let normalizedDirection = CGVector(dx: direction.dx / length, dy: direction.dy / length)
+
+        // Calculate points for the arrowhead
+        let arrowheadPoints = [
+            CGPoint(x: lastPoint.x - normalizedDirection.dx * arrowSize + normalizedDirection.dy * arrowSize,
+                    y: lastPoint.y - normalizedDirection.dy * arrowSize - normalizedDirection.dx * arrowSize),
+            lastPoint,
+            CGPoint(x: lastPoint.x - normalizedDirection.dx * arrowSize - normalizedDirection.dy * arrowSize,
+                    y: lastPoint.y - normalizedDirection.dy * arrowSize + normalizedDirection.dx * arrowSize)
+        ]
+
+        // Create path for arrow
+        path.move(to: firstPoint)
+        for point in points.dropFirst() {
+            path.addLine(to: point)
+        }
+
+        // Add arrowhead to the path
+        path.addLines(arrowheadPoints)
+
+        return path
+    }
+
+
     
     private func createCirclePath(center: CGPoint, radius: CGFloat) -> Path {
         let circleRect = CGRect(x: center.x - radius, y: center.y - radius, width: 2 * radius, height: 2 * radius)

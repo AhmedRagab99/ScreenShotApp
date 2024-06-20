@@ -53,9 +53,9 @@ struct ImageEditorButtonsView : View {
             
             
             Button {
-                
+                engine.setDrawingType(with: .arrow)
             } label: {
-                Image(systemName: "arrow.uturn.backward.circle")
+                Image(systemName: "arrow.down.left")
                     .imageScale(.large)
             }
             
