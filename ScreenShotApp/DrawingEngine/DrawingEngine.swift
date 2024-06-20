@@ -30,18 +30,27 @@ struct ShapeData: Identifiable {
 final class DrawingEngine:ObservableObject {
     
     @Published var shapes = [ShapeData]()
-    var deletedShapes = [ShapeData]()
+    
     @Published var selectedLineWidth: CGFloat = 2
     @Published var selectedColor: Color = .red
     @Published var selectedShapeID: UUID? = nil
-    
+     
+    private var deletedShapes = [ShapeData]()
     private var drawingType: DrawingType?
     private var startPoint: CGPoint?
     private var currentPoint: CGPoint?
+    private var canvasSize:CGSize = .zero
     
     
     func setDrawingType(with type:DrawingType) {
         self.drawingType = type
+    }
+    
+    func setCanvasSize(with size:CGSize) {
+        self.canvasSize = size
+    }
+    func getCanvasSize() -> CGSize {
+        return canvasSize
     }
 }
 
