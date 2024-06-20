@@ -29,10 +29,10 @@ struct ShapeData: Identifiable {
 
 final class DrawingEngine:ObservableObject {
     
-     @Published var shapes = [ShapeData]()
+    @Published var shapes = [ShapeData]()
     @Published var selectedLineWidth: CGFloat = 2
     @Published var selectedColor: Color = .red
-    
+    @Published var shapesData = [ShapeData]()
     private var drawingType: DrawingType?
     private var startPoint: CGPoint?
     private var currentPoint: CGPoint?
@@ -49,9 +49,7 @@ extension DrawingEngine {
     
     func draw(using context: GraphicsContext, and size: CGSize) {
         
-        guard let drawingType = drawingType else {return}
-        print("shapes here ",shapes)
-        for (index,shape) in shapes.enumerated() {
+        for shape in shapes {
             switch shape.type {
             case .line:
                 drawLine(using: context, shape: shape)
@@ -60,11 +58,11 @@ extension DrawingEngine {
                     context.stroke(path, with: .color(shape.color),lineWidth: shape.lineWidth)
                 }
             case .ellipse:
-                if let path = drawEllipse(using: context, shape: shape){
+                if let path = drawEllipse(using: context, shape: shape) {
                     context.stroke(path, with: .color(shape.color),lineWidth: shape.lineWidth)
                 }
             case .circle:
-                if  let path = drawCircle(using: context, shape: shape) {
+                if let path = drawCircle(using: context, shape: shape) {
                     context.stroke(path, with: .color(shape.color),lineWidth: shape.lineWidth)
                 }
             case .text:
@@ -173,40 +171,35 @@ extension DrawingEngine {
     
     
     private func updateShapesPathOnChangedState(using value:DragGesture.Value) {
-        guard let drawingType = drawingType else {return}
+        guard let drawingType = drawingType else { return }
         
-        if self.startPoint == nil {
-            self.startPoint = value.startLocation
+        if startPoint == nil {
+            startPoint = value.startLocation
+            addShape(type: drawingType, at: value.startLocation)
         }
-        self.currentPoint = value.location
         
-        updateShapePath(from: drawingType)
+        currentPoint = value.location
+        updateShapePath()
+    }
+    private func addShape(type: DrawingType, at point: CGPoint) {
+        let shape = ShapeData(type: type, color: selectedColor, lineWidth: selectedLineWidth)
+        shapes.append(shape)
     }
     
-    private func updateShapePath(from type: DrawingType) {
-        guard let startPoint = startPoint, let currentPoint = currentPoint, startPoint != currentPoint else {
-            return
+    private func updateShapePath() {
+        guard let startPoint = startPoint, let currentPoint = currentPoint else { return }
+        
+        let rect = CGRect(x: min(startPoint.x, currentPoint.x),
+                          y: min(startPoint.y, currentPoint.y),
+                          width: abs(currentPoint.x - startPoint.x),
+                          height: abs(currentPoint.y - startPoint.y))
+        
+        if drawingType == .circle {
+            let radius = startPoint.distance(to: currentPoint)
+            shapes[shapes.count - 1].rect = CGRect(x: startPoint.x - radius, y: startPoint.y - radius, width: 2 * radius, height: 2 * radius)
+        } else {
+            shapes[shapes.count - 1].rect = rect
         }
-        
-        switch type {
-        case .rectangle, .ellipse, .text:
-            let rect = CGRect(x: min(startPoint.x, currentPoint.x),
-                              y: min(startPoint.y, currentPoint.y),
-                              width: abs(currentPoint.x - startPoint.x),
-                              height: abs(currentPoint.y - startPoint.y))
-            shapes.append(ShapeData(type: type, rect: rect, color: selectedColor, lineWidth: selectedLineWidth))
-            
-        case .circle:
-            let radius:CGFloat = startPoint.distance(to: currentPoint)
-            let circleCenter = startPoint
-            let circleRect = CGRect(x: circleCenter.x - radius, y: circleCenter.y - radius, width: 2 * radius, height: 2 * radius)
-            shapes.append(ShapeData(type: .circle, rect: circleRect, color: selectedColor, lineWidth: selectedLineWidth))
-            
-        default:
-            break // No need to handle .line here
-        }
-        
-        
     }
 }
 
