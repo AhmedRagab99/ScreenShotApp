@@ -39,6 +39,7 @@ enum ScreenShotTypes:CaseIterable {
 
 final class ScreenCaptureManger:ObservableObject {
     @Published var images:[ImageContent] = [ImageContent]()
+    @Published var lastImage:ImageContent?
     private let screenCapturePath = "/usr/sbin/screencapture"
     
     func takeScreenShot(from type:ScreenShotTypes) {
@@ -57,6 +58,7 @@ final class ScreenCaptureManger:ObservableObject {
     private func getImagesFromPaste() {
         guard NSPasteboard.general.canReadItem(withDataConformingToTypes: NSImage.imageTypes) else {return}
         guard let image = NSImage(pasteboard: NSPasteboard.general) else {return}
+        lastImage = ImageContent(image: image)
         self.images.append(ImageContent(image: image))
     }
 }

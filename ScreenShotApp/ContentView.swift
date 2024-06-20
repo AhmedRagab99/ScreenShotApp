@@ -21,48 +21,33 @@ struct ContentView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 200, maximum: 500))], content: {
                         ForEach(manger.images,id:\.id){ imageContent in
                             VStack {
-                                Image(nsImage: imageContent.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .draggable(imageContent.image)
-                                    .onTapGesture {
-                                        
+                                ZStack(alignment: .topTrailing) {
+                                    Image(nsImage: imageContent.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                    
+                                    NavigationLink("Edit") {
+                                        ImageEditorView(image: imageContent)
                                     }
-                                NavigationLink("Editor") {
-                                    ImageEditorView(image: imageContent.image)
+                                    .background {
+                                        Color.gray
+                                    }
+                                    .padding([.top,.trailing],2)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    
                                 }
-                                Text(imageContent.id.description)
-                                    .font(.title)
                             }
                         }
                     })
                 }
+                .frame(maxWidth: manger.images.count == 0 ? .zero : .infinity)
+                .frame(maxHeight: manger.images.count == 0 ? .zero : .infinity)
+                ContentUnavailableView("No snippets", systemImage: "swift", description: Text("You don't have any saved snippets yet."))
+                    .frame(maxWidth: manger.images.count != 0 ? .zero : .infinity)
+                    .frame(maxHeight: manger.images.count != 0 ? .zero : .infinity)
 
-                HStack {
-                    Button("close window") {
-                        let application = NSApplication.shared
-                        
-                        // Filter visible windows
-                        guard let overlayWindow = overlayWindow else {return}
-                        overlayWindow.close()
-                    }
-                    
-                    Button("open overlays window") {
-    //                    manger.images.forEach { imageContent in
-    //                        var position = CGPoint(x: 50, y: 100)
-    //                        if let windowPostion = getWindowPostionBy(id: imageContent.id.description) {
-    //                            position = CGPoint(x: windowPostion.x, y: windowPostion.y + 100)
-    //                        }
-    //                        
-    //                        let overlayView = OverlayView(text: "Top Left Overlay", image: imageContent.image, id: imageContent.id.description)
-    //                        overlayWindow = createOverlayWindow(with: overlayView, id: imageContent.id.description, at: position)
-    //                        overlayWindow?.makeKeyAndOrderFront(nil)
-    //                    }
-                    }
-                    
-                    Button("create new window") {
-                        openNewWindow(with: ContentView(), id: "newID",title: "new content view window")
-                    }
+
+                HStack {                  
                     Button ("Make a full screenShot") {
                         manger.takeScreenShot(from: .full)
                     }
@@ -74,13 +59,11 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Screen Shot App")
             .padding()
         }
     }
 }
 
-//
 
 #Preview {
     ContentView()

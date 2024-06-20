@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D024E6842C24C14E00AE6268 /* ImageEditorButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D024E6832C24C14E00AE6268 /* ImageEditorButtonsView.swift */; };
 		D07E5F5C2C133E0200D0378B /* ScreenShotAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */; };
 		D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E5F5D2C133E0200D0378B /* ContentView.swift */; };
 		D07E5F602C133E0300D0378B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E5F5F2C133E0300D0378B /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D024E6832C24C14E00AE6268 /* ImageEditorButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorButtonsView.swift; sourceTree = "<group>"; };
 		D07E5F582C133E0200D0378B /* ScreenShotApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenShotApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotAppApp.swift; sourceTree = "<group>"; };
 		D07E5F5D2C133E0200D0378B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */,
 				D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */,
+				D024E6832C24C14E00AE6268 /* ImageEditorButtonsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */,
 				D09C9F0D2C23282B00FAA8A2 /* ImageEditorView.swift in Sources */,
 				D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */,
+				D024E6842C24C14E00AE6268 /* ImageEditorButtonsView.swift in Sources */,
 				D09C9F0F2C232CE700FAA8A2 /* DrawingEngine.swift in Sources */,
 				D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */,
 				D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */,

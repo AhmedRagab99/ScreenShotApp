@@ -36,6 +36,7 @@ public func openNewWindow<Content: View>(with view: Content,id:String, title: St
     newWindow.setContentSize(NSSize(width: width, height: height))
     newWindow.styleMask = [.titled, .closable, .resizable, .miniaturizable]
     newWindow.center()
+    newWindow.standardWindowButton(.toolbarButton)
     windowsDictionary[id] = newWindow
     newWindow.makeKeyAndOrderFront(nil)
 }

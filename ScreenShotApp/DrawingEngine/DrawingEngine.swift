@@ -62,6 +62,11 @@ extension DrawingEngine {
     func undoValidation() -> Bool {
         return shapes.count == 0
     }
+    
+    func removeAll() {
+        shapes.removeAll()
+        deletedShapes.removeAll()
+    }
 }
 
 //MARK: - drawing lines and shapes methods
