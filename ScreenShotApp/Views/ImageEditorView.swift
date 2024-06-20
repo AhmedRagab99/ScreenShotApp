@@ -109,18 +109,19 @@ struct ImageEditorButtonsView : View {
 struct ImageEditorView: View {
     @State private var isShowingTextInput = false
     @StateObject private var engine = DrawingEngine()
-    var image:NSImage
+    @State var image:NSImage
     var body: some View {
         VStack {
             ImageEditorButtonsView(engine: engine, isShowingTextInput: $isShowingTextInput)
-
             ZStack {
-                Image(nsImage: NSImage(resource: .test))
+                Color.black
+                Image(nsImage: image)
                     .resizable()
+                    .scaledToFit()
                     .padding()
                 Canvas { context, size in
                     engine.draw(using: context, and: size)
-                }              
+                }
                 .gesture(
                     DragGesture(minimumDistance: 0)
                         .onChanged({ value in
@@ -135,6 +136,7 @@ struct ImageEditorView: View {
         }
     }
 }
+
 #Preview {
     ImageEditorView(image: NSImage(resource: .test))
 }

@@ -123,12 +123,6 @@ extension DrawingEngine {
         return path
     }
     
-    private func drawText(using context: GraphicsContext, shape: ShapeData) -> Path? {
-        guard let rect = shape.rect, let text = shape.text else { return nil}
-        let attributedText = AttributedString(text, attributes: .init([.font: Font.system(size: shape.lineWidth * 10), .foregroundColor: shape.color]))
-        let path = Path(rect)
-        return path
-    }
 }
 
 
@@ -142,8 +136,6 @@ extension DrawingEngine {
             updateLinePathOnChangedState(using: value)
         case .rectangle,.circle,.ellipse:
             updateShapesPathOnChangedState(using: value)
-        case .text:
-            updateTextPathOnChangedState(using: value)
         }
     }
     
@@ -152,7 +144,7 @@ extension DrawingEngine {
         switch drawingType {
         case .line,.arrow:
             updateLineOnEndedState(using: value)
-        case .ellipse,.circle,.rectangle,.text:
+        case .ellipse,.circle,.rectangle:
             updateShapesOnEndedState(using: value)
         }
     }
@@ -173,26 +165,6 @@ extension DrawingEngine {
             shapes[index].points.append(newPoint)
         }
     }
-    
-    private func updateTextPathOnChangedState(using value:DragGesture.Value) {
-        guard drawingType != nil else {return}
-        
-        if self.startPoint == nil {
-            self.startPoint = value.location
-        }
-        self.currentPoint = value.location
-        updateTextRect()
-    }
-    
-    private func updateTextRect() {
-        guard let startPoint = startPoint, let currentPoint = currentPoint else { return }
-        let rect = CGRect(x: min(startPoint.x, currentPoint.x),
-                          y: min(startPoint.y, currentPoint.y),
-                          width: abs(currentPoint.x - startPoint.x),
-                          height: abs(currentPoint.y - startPoint.y))
-        shapes.append(ShapeData(type: .text, rect: rect, color: selectedColor, lineWidth: selectedLineWidth, text: "Sample Text"))
-    }
-    
     
     private func updateShapesPathOnChangedState(using value:DragGesture.Value) {
         guard let drawingType = drawingType else { return }
