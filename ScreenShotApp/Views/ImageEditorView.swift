@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+
 struct ImageEditorView: View {
-    @State private var saveImage = false
     @StateObject private var engine = DrawingEngine()
+    @StateObject private var storeManger = FilesStorageManger()
     @State var image:ImageContent
     var body: some View {
         VStack {
@@ -26,38 +27,9 @@ struct ImageEditorView: View {
                         engine.updateDragGestureOnEndedState(using: value)
                     })
             )
-            .captureImage(size: engine.getCanvasSize(), shouldCapture: saveImage) { fullImage in
-                //                self.image.image = fullImage!
-                guard let imageData = fullImage?.tiffRepresentation else {
-                    print("image data error")
-                    return
-                }
-                
-                guard let imageRep = NSBitmapImageRep(data: imageData) else {
-                    print("bit image error")
-                    return
-                }
-                
-                guard let pngData = imageRep.representation(using: .png, properties: [:]) else {
-                    print("png error")
-                    return
-                }
-                
-                guard let desktopURL = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first else {
-                    print("desktop url error")
-                    return
-                }
-                
-                let fileURL = desktopURL.appendingPathComponent("image" + ".png")
-                
-                do {
-                    try pngData.write(to: fileURL)
-                    
-                } catch {
-                    print("Error saving PNG file:", error)
-                    
-                }
-            }
+            .captureImage(size: engine.getCanvasSize(), shouldCapture: storeManger.saveImage) { fullImage in
+                storeManger.saveCapturedImage(fullImage)
+                    }
             .draggable(image.image)
             
             
@@ -70,7 +42,7 @@ struct ImageEditorView: View {
             
             ToolbarItem(placement: .automatic) {
                 Button {
-                    saveImage = true
+                    storeManger.handleSaveAction()
                 } label: {
                     Text("save")
                 }
@@ -78,8 +50,7 @@ struct ImageEditorView: View {
         }
     }
 }
-import SwiftUI
-import AppKit
+
 
 extension View {
     
