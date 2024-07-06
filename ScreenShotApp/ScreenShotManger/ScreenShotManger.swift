@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeyboardShortcuts
 
 enum ScreenShotTypes:CaseIterable {
     case full
@@ -41,6 +42,20 @@ final class ScreenCaptureManger:ObservableObject {
     @Published var images:[ImageContent] = [ImageContent]()
     @Published var lastImage:ImageContent?
     private let screenCapturePath = "/usr/sbin/screencapture"
+    
+    init() {
+        KeyboardShortcuts.onKeyUp(for: .screenShotCapture) { [self] in
+            takeScreenShot(from: .area)
+        }
+        
+        KeyboardShortcuts.onKeyUp(for: .screenShotCaptureFull) { [self] in
+            takeScreenShot(from: .full)
+        }
+        KeyboardShortcuts.onKeyUp(for: .screenShotCaptureWindow) { [self] in
+            takeScreenShot(from: .window)
+        }
+    }
+    
     
     func takeScreenShot(from type:ScreenShotTypes) {
         let task =  Process()

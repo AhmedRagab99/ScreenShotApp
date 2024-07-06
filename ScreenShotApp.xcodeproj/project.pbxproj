@@ -16,6 +16,13 @@
 		D09C9F0F2C232CE700FAA8A2 /* DrawingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */; };
 		D0C445D82C3969A00057C89B /* FilesStorageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C445D72C3969A00057C89B /* FilesStorageManger.swift */; };
 		D0DCBAB22C39772E00E9113C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAB12C39772E00E9113C /* ToastView.swift */; };
+		D0DCBAB52C397A1700E9113C /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = D0DCBAB42C397A1700E9113C /* KeyboardShortcuts */; };
+		D0DCBAB82C3980A300E9113C /* KeyboardShourtcuts+Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAB72C3980A300E9113C /* KeyboardShourtcuts+Global.swift */; };
+		D0DCBABC2C39858E00E9113C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBABB2C39858E00E9113C /* SettingsView.swift */; };
+		D0DCBABF2C39862700E9113C /* KeyboardShortcutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBABE2C39862700E9113C /* KeyboardShortcutSettingsView.swift */; };
+		D0DCBAC12C39866200E9113C /* MenubarSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAC02C39866200E9113C /* MenubarSettingsView.swift */; };
+		D0DCBAC42C3986EA00E9113C /* MenubarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAC32C3986EA00E9113C /* MenubarContentView.swift */; };
+		D0DCBAC62C398D2400E9113C /* ButtonsCaptureActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAC52C398D2400E9113C /* ButtonsCaptureActionView.swift */; };
 		D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */; };
 		D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */; };
 		D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */; };
@@ -31,9 +38,14 @@
 		D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenShotApp.entitlements; sourceTree = "<group>"; };
 		D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorView.swift; sourceTree = "<group>"; };
 		D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingEngine.swift; sourceTree = "<group>"; };
-		D0C445D52C3966D20057C89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D0C445D72C3969A00057C89B /* FilesStorageManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilesStorageManger.swift; path = ScreenShotApp/Views/FilesStorageManger.swift; sourceTree = SOURCE_ROOT; };
 		D0DCBAB12C39772E00E9113C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		D0DCBAB72C3980A300E9113C /* KeyboardShourtcuts+Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardShourtcuts+Global.swift"; sourceTree = "<group>"; };
+		D0DCBABB2C39858E00E9113C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D0DCBABE2C39862700E9113C /* KeyboardShortcutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcutSettingsView.swift; sourceTree = "<group>"; };
+		D0DCBAC02C39866200E9113C /* MenubarSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarSettingsView.swift; sourceTree = "<group>"; };
+		D0DCBAC32C3986EA00E9113C /* MenubarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarContentView.swift; sourceTree = "<group>"; };
+		D0DCBAC52C398D2400E9113C /* ButtonsCaptureActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsCaptureActionView.swift; sourceTree = "<group>"; };
 		D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Funcitons.swift"; sourceTree = "<group>"; };
 		D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotManger.swift; sourceTree = "<group>"; };
 		D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -44,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DCBAB52C397A1700E9113C /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,17 +90,17 @@
 		D07E5F5A2C133E0200D0378B /* ScreenShotApp */ = {
 			isa = PBXGroup;
 			children = (
-				D0C445D52C3966D20057C89B /* Info.plist */,
-				D0C445D62C3969840057C89B /* FilesStorage */,
+				D0DCBABA2C39817300E9113C /* Resources */,
+				D0DCBAB62C39808300E9113C /* Models */,
 				D05ED21C2C248EBB0062148B /* DrawingEngine */,
+				D0C445D62C3969840057C89B /* FilesStorage */,
+				D0DCBAB92C39815B00E9113C /* ScreenShotManger */,
 				D0FAB50F2C1DADC900C7A0D3 /* Views */,
 				D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */,
+				D07E5F612C133E0300D0378B /* Preview Content */,
+				D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */,
 				D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */,
 				D07E5F5D2C133E0200D0378B /* ContentView.swift */,
-				D07E5F5F2C133E0300D0378B /* Assets.xcassets */,
-				D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */,
-				D07E5F612C133E0300D0378B /* Preview Content */,
-				D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */,
 			);
 			path = ScreenShotApp;
 			sourceTree = "<group>";
@@ -108,13 +121,74 @@
 			path = FilesStorage;
 			sourceTree = "<group>";
 		};
-		D0FAB50F2C1DADC900C7A0D3 /* Views */ = {
+		D0DCBAB62C39808300E9113C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0DCBAB72C3980A300E9113C /* KeyboardShourtcuts+Global.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D0DCBAB92C39815B00E9113C /* ScreenShotManger */ = {
+			isa = PBXGroup;
+			children = (
+				D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */,
+			);
+			path = ScreenShotManger;
+			sourceTree = "<group>";
+		};
+		D0DCBABA2C39817300E9113C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D07E5F5F2C133E0300D0378B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D0DCBABD2C3985FC00E9113C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D0DCBABB2C39858E00E9113C /* SettingsView.swift */,
+				D0DCBABE2C39862700E9113C /* KeyboardShortcutSettingsView.swift */,
+				D0DCBAC02C39866200E9113C /* MenubarSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D0DCBAC22C3986D900E9113C /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				D0DCBAC32C3986EA00E9113C /* MenubarContentView.swift */,
+			);
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		D0DCBAC72C398D4100E9113C /* Commen */ = {
 			isa = PBXGroup;
 			children = (
 				D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */,
-				D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */,
-				D024E6832C24C14E00AE6268 /* ImageEditorButtonsView.swift */,
+				D0DCBAC52C398D2400E9113C /* ButtonsCaptureActionView.swift */,
 				D0DCBAB12C39772E00E9113C /* ToastView.swift */,
+			);
+			path = Commen;
+			sourceTree = "<group>";
+		};
+		D0DCBAC82C398D5500E9113C /* EditorViews */ = {
+			isa = PBXGroup;
+			children = (
+				D024E6832C24C14E00AE6268 /* ImageEditorButtonsView.swift */,
+				D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */,
+			);
+			name = EditorViews;
+			sourceTree = "<group>";
+		};
+		D0FAB50F2C1DADC900C7A0D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0DCBAC82C398D5500E9113C /* EditorViews */,
+				D0DCBAC72C398D4100E9113C /* Commen */,
+				D0DCBABD2C3985FC00E9113C /* Settings */,
+				D0DCBAC22C3986D900E9113C /* MenuBar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +209,9 @@
 			dependencies = (
 			);
 			name = ScreenShotApp;
+			packageProductDependencies = (
+				D0DCBAB42C397A1700E9113C /* KeyboardShortcuts */,
+			);
 			productName = ScreenShotApp;
 			productReference = D07E5F582C133E0200D0378B /* ScreenShotApp.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +240,9 @@
 				Base,
 			);
 			mainGroup = D07E5F4F2C133E0200D0378B;
+			packageReferences = (
+				D0DCBAB32C397A1700E9113C /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
 			productRefGroup = D07E5F592C133E0200D0378B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -189,14 +269,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DCBAB82C3980A300E9113C /* KeyboardShourtcuts+Global.swift in Sources */,
 				D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */,
 				D09C9F0D2C23282B00FAA8A2 /* ImageEditorView.swift in Sources */,
+				D0DCBAC42C3986EA00E9113C /* MenubarContentView.swift in Sources */,
 				D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */,
+				D0DCBAC62C398D2400E9113C /* ButtonsCaptureActionView.swift in Sources */,
 				D0C445D82C3969A00057C89B /* FilesStorageManger.swift in Sources */,
 				D0DCBAB22C39772E00E9113C /* ToastView.swift in Sources */,
+				D0DCBABF2C39862700E9113C /* KeyboardShortcutSettingsView.swift in Sources */,
 				D024E6842C24C14E00AE6268 /* ImageEditorButtonsView.swift in Sources */,
+				D0DCBAC12C39866200E9113C /* MenubarSettingsView.swift in Sources */,
 				D09C9F0F2C232CE700FAA8A2 /* DrawingEngine.swift in Sources */,
 				D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */,
+				D0DCBABC2C39858E00E9113C /* SettingsView.swift in Sources */,
 				D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */,
 				D07E5F5C2C133E0200D0378B /* ScreenShotAppApp.swift in Sources */,
 			);
@@ -411,6 +497,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0DCBAB32C397A1700E9113C /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0DCBAB42C397A1700E9113C /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0DCBAB32C397A1700E9113C /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D07E5F502C133E0200D0378B /* Project object */;
 }
