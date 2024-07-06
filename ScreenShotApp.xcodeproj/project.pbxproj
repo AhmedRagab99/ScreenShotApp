@@ -14,6 +14,8 @@
 		D07E5F632C133E0300D0378B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E5F622C133E0300D0378B /* Preview Assets.xcassets */; };
 		D09C9F0D2C23282B00FAA8A2 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */; };
 		D09C9F0F2C232CE700FAA8A2 /* DrawingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */; };
+		D0C445D82C3969A00057C89B /* FilesStorageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C445D72C3969A00057C89B /* FilesStorageManger.swift */; };
+		D0DCBAB22C39772E00E9113C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAB12C39772E00E9113C /* ToastView.swift */; };
 		D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */; };
 		D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */; };
 		D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */; };
@@ -29,6 +31,9 @@
 		D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenShotApp.entitlements; sourceTree = "<group>"; };
 		D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorView.swift; sourceTree = "<group>"; };
 		D09C9F0E2C232CE700FAA8A2 /* DrawingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingEngine.swift; sourceTree = "<group>"; };
+		D0C445D52C3966D20057C89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D0C445D72C3969A00057C89B /* FilesStorageManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilesStorageManger.swift; path = ScreenShotApp/Views/FilesStorageManger.swift; sourceTree = SOURCE_ROOT; };
+		D0DCBAB12C39772E00E9113C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Funcitons.swift"; sourceTree = "<group>"; };
 		D0E9E0CB2C13959700BD8FFC /* ScreenShotManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotManger.swift; sourceTree = "<group>"; };
 		D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -72,6 +77,8 @@
 		D07E5F5A2C133E0200D0378B /* ScreenShotApp */ = {
 			isa = PBXGroup;
 			children = (
+				D0C445D52C3966D20057C89B /* Info.plist */,
+				D0C445D62C3969840057C89B /* FilesStorage */,
 				D05ED21C2C248EBB0062148B /* DrawingEngine */,
 				D0FAB50F2C1DADC900C7A0D3 /* Views */,
 				D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */,
@@ -93,12 +100,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D0C445D62C3969840057C89B /* FilesStorage */ = {
+			isa = PBXGroup;
+			children = (
+				D0C445D72C3969A00057C89B /* FilesStorageManger.swift */,
+			);
+			path = FilesStorage;
+			sourceTree = "<group>";
+		};
 		D0FAB50F2C1DADC900C7A0D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */,
 				D09C9F0C2C23282B00FAA8A2 /* ImageEditorView.swift */,
 				D024E6832C24C14E00AE6268 /* ImageEditorButtonsView.swift */,
+				D0DCBAB12C39772E00E9113C /* ToastView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +192,8 @@
 				D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */,
 				D09C9F0D2C23282B00FAA8A2 /* ImageEditorView.swift in Sources */,
 				D0E9E0CC2C13959700BD8FFC /* ScreenShotManger.swift in Sources */,
+				D0C445D82C3969A00057C89B /* FilesStorageManger.swift in Sources */,
+				D0DCBAB22C39772E00E9113C /* ToastView.swift in Sources */,
 				D024E6842C24C14E00AE6268 /* ImageEditorButtonsView.swift in Sources */,
 				D09C9F0F2C232CE700FAA8A2 /* DrawingEngine.swift in Sources */,
 				D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */,
@@ -311,6 +329,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ScreenShotApp/ScreenShotApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -320,6 +339,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScreenShotApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -329,6 +350,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedRagab.ScreenShotApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -340,6 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ScreenShotApp/ScreenShotApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -349,6 +372,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScreenShotApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -358,6 +383,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedRagab.ScreenShotApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
