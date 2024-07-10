@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ScreenCapture
 
 
 struct ButtonsCaptureActionView: View {

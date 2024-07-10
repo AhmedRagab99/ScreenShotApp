@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ScreenCapture
 
 struct MenubarContentView: View {
     @ObservedObject var manger: ScreenCaptureManger

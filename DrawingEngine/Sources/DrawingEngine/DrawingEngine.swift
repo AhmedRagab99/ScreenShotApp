@@ -1,13 +1,9 @@
-//
-//  DrawingEngine.swift
-//  ScreenShotApp
-//
-//  Created by Ahmed Ragab on 19/06/2024.
-//
+// The Swift Programming Language
+// https://docs.swift.org/swift-book
 
 import Foundation
 import SwiftUI
-enum DrawingType {
+public enum DrawingType {
     case line
     case rectangle
     case ellipse
@@ -15,24 +11,24 @@ enum DrawingType {
     case arrow
 }
 
-struct ShapeData: Identifiable {
-    var id = UUID()
-    var type: DrawingType
-    var points: [CGPoint] = []
-    var rect: CGRect? = nil // Used for rectangles, ellipses, and text bounding box
-    var color: Color
-    var lineWidth: CGFloat
-    var isSelected: Bool = false // Add this property
+public struct ShapeData: Identifiable {
+    public var id = UUID()
+    public var type: DrawingType
+    public var points: [CGPoint] = []
+    public var rect: CGRect? = nil // Used for rectangles, ellipses, and text bounding box
+    public var color: Color
+    public var lineWidth: CGFloat
+    public var isSelected: Bool = false // Add this property
 }
 
 
 
-final class DrawingEngine:ObservableObject {
+public final class DrawingEngine:ObservableObject {
     
-    @Published var shapes = [ShapeData]()
+    @Published public var shapes = [ShapeData]()
     
-    @Published var selectedLineWidth: CGFloat = 2
-    @Published var selectedColor: Color = .red
+    @Published public var selectedLineWidth: CGFloat = 2
+    @Published public var selectedColor: Color = .red
     @Published var selectedShapeID: UUID? = nil
      
     private var deletedShapes = [ShapeData]()
@@ -41,38 +37,39 @@ final class DrawingEngine:ObservableObject {
     private var currentPoint: CGPoint?
     private var canvasSize:CGSize = .zero
     
+    public init() {}
     
-    func setDrawingType(with type:DrawingType) {
+    public func setDrawingType(with type:DrawingType) {
         self.drawingType = type
     }
     
-    func setCanvasSize(with size:CGSize) {
+    public func setCanvasSize(with size:CGSize) {
         self.canvasSize = size
     }
-    func getCanvasSize() -> CGSize {
+    public func getCanvasSize() -> CGSize {
         return canvasSize
     }
 }
 
 //MARK: - undo and redo methods
 extension DrawingEngine {
-    func redoDrawing() {
+    public func redoDrawing() {
         let last = self.deletedShapes.removeLast()
         shapes.append(last)
     }
-    func redoValidation() -> Bool {
+    public func redoValidation() -> Bool {
         return deletedShapes.count == 0
     }
     
-    func undoDrawing() {
+    public func undoDrawing() {
         let last = shapes.removeLast()
         deletedShapes.append(last)
     }
-    func undoValidation() -> Bool {
+    public func undoValidation() -> Bool {
         return shapes.count == 0
     }
     
-    func removeAll() {
+    public func removeAll() {
         shapes.removeAll()
         deletedShapes.removeAll()
     }
@@ -82,7 +79,7 @@ extension DrawingEngine {
 extension DrawingEngine {
     
     
-    func draw(using context: GraphicsContext, and size: CGSize) {
+    public func draw(using context: GraphicsContext, and size: CGSize) {
         
         for shape in shapes {
             switch shape.type {
@@ -143,7 +140,7 @@ extension DrawingEngine {
 //MARK: - update gestures state methods
 extension DrawingEngine {
     
-    func updateDragGestureOnChangedState(from value:DragGesture.Value) {
+    public func updateDragGestureOnChangedState(from value:DragGesture.Value) {
         guard let drawingType = drawingType else {return}
         switch drawingType {
         case .line,.arrow:
@@ -153,7 +150,7 @@ extension DrawingEngine {
         }
     }
     
-    func updateDragGestureOnEndedState(using value: DragGesture.Value) {
+   public  func updateDragGestureOnEndedState(using value: DragGesture.Value) {
         guard let drawingType = drawingType else {return}
         switch drawingType {
         case .line,.arrow:

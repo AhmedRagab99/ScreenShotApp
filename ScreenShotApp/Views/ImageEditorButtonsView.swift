@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DrawingEngine
 
 struct ImageEditorButtonsView : View {
     @ObservedObject var engine:DrawingEngine

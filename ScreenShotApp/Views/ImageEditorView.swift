@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-
+import DrawingEngine
+import ScreenCapture
 
 struct ImageEditorView: View {
     @StateObject private var engine = DrawingEngine()

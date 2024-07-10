@@ -6,11 +6,8 @@
 //
 
 import SwiftUI
+import ScreenCapture
 
-struct ImageContent {
-    var image:NSImage
-    var id = UUID()
-}
 struct ContentView: View {
     @ObservedObject  var manger: ScreenCaptureManger
     @State private var overlayWindow: NSWindow?
