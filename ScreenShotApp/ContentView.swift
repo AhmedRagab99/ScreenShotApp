@@ -12,7 +12,7 @@ struct ImageContent {
     var id = UUID()
 }
 struct ContentView: View {
-    @StateObject private var manger  = ScreenCaptureManger()
+    @ObservedObject  var manger: ScreenCaptureManger
     @State private var overlayWindow: NSWindow?
     var body: some View {
         NavigationStack {
@@ -47,24 +47,13 @@ struct ContentView: View {
                     .frame(maxHeight: manger.images.count != 0 ? .zero : .infinity)
 
 
-                HStack {                  
-                    Button ("Make a full screenShot") {
-                        manger.takeScreenShot(from: .full)
-                    }
-                    Button ("Make a wnidow screenShot") {
-                        manger.takeScreenShot(from: .window)
-                    }
-                    Button ("Make an area screenShot") {
-                        manger.takeScreenShot(from: .area)
-                    }
-                }
+                ButtonsCaptureActionView(manger: manger)
             }
             .padding()
         }
     }
 }
 
-
 #Preview {
-    ContentView()
+    ContentView(manger: ScreenCaptureManger())
 }

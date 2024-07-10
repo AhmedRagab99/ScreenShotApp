@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>NSOpenPanelUsageDescription</key>
-	<string>Your description here explaining why you need to open file dialogs.</string>
+	<string>added for using nspanel to select the folder </string>
 </dict>
 </plist>

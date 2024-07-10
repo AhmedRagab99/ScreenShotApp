@@ -63,14 +63,19 @@ struct ImageEditorButtonsView : View {
             } label: {
                 Image(systemName: "arrow.uturn.backward.circle")
                     .imageScale(.large)
-            }.disabled(engine.undoValidation())
+            }
+            .disabled(engine.undoValidation())
+            .keyboardShortcut(KeyEquivalent("z"), modifiers: [.command])
+         
             
             Button {
                 engine.redoDrawing()
             } label: {
                 Image(systemName: "arrow.uturn.forward.circle")
                     .imageScale(.large)
-            }.disabled(engine.redoValidation())
+            }
+            .disabled(engine.redoValidation())
+            .keyboardShortcut(KeyEquivalent("z"), modifiers: [.shift,.command])
             
             Button {
                 showConfirmation = true
@@ -78,13 +83,16 @@ struct ImageEditorButtonsView : View {
                 Image(systemName: "delete.backward")
                     .imageScale(.large)
             }
+            .keyboardShortcut(KeyEquivalent("d"), modifiers: .command)
             .confirmationDialog(Text("Are you sure you want to delete everything?"), isPresented: $showConfirmation) {
                 
                 Button("Delete", role: .destructive) {
                     engine.removeAll()
                 }
+                
             }
-        }.padding()
+        }
+        .padding()
     }
 }
 
