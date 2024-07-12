@@ -23,6 +23,7 @@
 		D0DCBAC42C3986EA00E9113C /* MenubarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAC32C3986EA00E9113C /* MenubarContentView.swift */; };
 		D0DCBAC62C398D2400E9113C /* ButtonsCaptureActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAC52C398D2400E9113C /* ButtonsCaptureActionView.swift */; };
 		D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */; };
+		D0EB511D2C4162CE009A89B4 /* ActionsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EB511C2C4162CE009A89B4 /* ActionsCommands.swift */; };
 		D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		D0DCBAC32C3986EA00E9113C /* MenubarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarContentView.swift; sourceTree = "<group>"; };
 		D0DCBAC52C398D2400E9113C /* ButtonsCaptureActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsCaptureActionView.swift; sourceTree = "<group>"; };
 		D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Funcitons.swift"; sourceTree = "<group>"; };
+		D0EB511C2C4162CE009A89B4 /* ActionsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsCommands.swift; sourceTree = "<group>"; };
 		D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,9 +153,18 @@
 			name = EditorViews;
 			sourceTree = "<group>";
 		};
+		D0EB511B2C4162C0009A89B4 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				D0EB511C2C4162CE009A89B4 /* ActionsCommands.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
 		D0FAB50F2C1DADC900C7A0D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D0EB511B2C4162C0009A89B4 /* Commands */,
 				D0DCBAC82C398D5500E9113C /* EditorViews */,
 				D0DCBAC72C398D4100E9113C /* Commen */,
 				D0DCBABD2C3985FC00E9113C /* Settings */,
@@ -247,6 +258,7 @@
 				D0C445D82C3969A00057C89B /* FilesStorageManger.swift in Sources */,
 				D0DCBAB22C39772E00E9113C /* ToastView.swift in Sources */,
 				D0DCBABF2C39862700E9113C /* KeyboardShortcutSettingsView.swift in Sources */,
+				D0EB511D2C4162CE009A89B4 /* ActionsCommands.swift in Sources */,
 				D024E6842C24C14E00AE6268 /* ImageEditorButtonsView.swift in Sources */,
 				D0DCBAC12C39866200E9113C /* MenubarSettingsView.swift in Sources */,
 				D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */,
