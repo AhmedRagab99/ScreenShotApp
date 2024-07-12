@@ -1,13 +1,14 @@
 //
-//  Helpers+Funcitons.swift
-//  ScreenShotApp
+//  File.swift
+//  
 //
-//  Created by Ahmed Ragab on 07/06/2024.
+//  Created by Ahmed Ragab on 12/07/2024.
 //
-
 import AppKit
 import Cocoa
 import SwiftUI
+
+
 fileprivate var windowsDictionary = [String: NSWindow]()
 
 public func manageOverlayWindow<Content: View>(
@@ -83,7 +84,7 @@ public func manageOverlayWindow<Content: View>(
     }
 }
 
-public func openNewWindow<Content: View>(with view: Content,id:String, title: String = "New Window", width: CGFloat = 300, height: CGFloat = 200) {
+public func openNewWindow<Content: View>(with view: Content,id: String, title: String = "New Window", width: CGFloat = 300, height: CGFloat = 200) {
     let newWindowView = NSHostingController(rootView: view)
     
     // Create the window and set properties
@@ -97,14 +98,19 @@ public func openNewWindow<Content: View>(with view: Content,id:String, title: St
     newWindow.makeKeyAndOrderFront(nil)
 }
 
-public func getWindowBy(id:String) -> NSWindow?  {
-    guard let window = windowsDictionary[id] else  {return nil}
+public func getWindowBy(id: String) -> NSWindow?  {
+    guard let window = windowsDictionary[id] else  { return nil }
     return window
+}
+
+public func closeWindow(from windowId: String) {
+    guard let window = getWindowBy(id: windowId) else { return }
+    window.close()
 }
 
 
 public func getWindowPostionBy(id:String) -> CGPoint? {
-    guard let window = windowsDictionary[id] else {return nil}
+    guard let window = windowsDictionary[id] else { return nil }
     return window.frame.origin
 }
 

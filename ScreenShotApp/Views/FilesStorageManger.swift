@@ -7,7 +7,7 @@
 
 import SwiftUI
 import AppKit
-
+import MacOSHelpers
 
 final class FilesStorageManger : ObservableObject {
     @Published var saveImage: Bool = false

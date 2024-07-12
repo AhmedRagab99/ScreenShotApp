@@ -19,11 +19,10 @@
 		D0DCBAB22C39772E00E9113C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAB12C39772E00E9113C /* ToastView.swift */; };
 		D0DCBABC2C39858E00E9113C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBABB2C39858E00E9113C /* SettingsView.swift */; };
 		D0DCBABF2C39862700E9113C /* KeyboardShortcutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBABE2C39862700E9113C /* KeyboardShortcutSettingsView.swift */; };
-		D0DCBAC12C39866200E9113C /* MenubarSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAC02C39866200E9113C /* MenubarSettingsView.swift */; };
 		D0DCBAC42C3986EA00E9113C /* MenubarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAC32C3986EA00E9113C /* MenubarContentView.swift */; };
 		D0DCBAC62C398D2400E9113C /* ButtonsCaptureActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DCBAC52C398D2400E9113C /* ButtonsCaptureActionView.swift */; };
-		D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */; };
 		D0EB511D2C4162CE009A89B4 /* ActionsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EB511C2C4162CE009A89B4 /* ActionsCommands.swift */; };
+		D0EB51212C416639009A89B4 /* MacOSHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = D0EB51202C416639009A89B4 /* MacOSHelpers */; };
 		D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,10 +39,8 @@
 		D0DCBAB12C39772E00E9113C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		D0DCBABB2C39858E00E9113C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D0DCBABE2C39862700E9113C /* KeyboardShortcutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcutSettingsView.swift; sourceTree = "<group>"; };
-		D0DCBAC02C39866200E9113C /* MenubarSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarSettingsView.swift; sourceTree = "<group>"; };
 		D0DCBAC32C3986EA00E9113C /* MenubarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarContentView.swift; sourceTree = "<group>"; };
 		D0DCBAC52C398D2400E9113C /* ButtonsCaptureActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsCaptureActionView.swift; sourceTree = "<group>"; };
-		D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Funcitons.swift"; sourceTree = "<group>"; };
 		D0EB511C2C4162CE009A89B4 /* ActionsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsCommands.swift; sourceTree = "<group>"; };
 		D0FAB5102C1DADD600C7A0D3 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +52,7 @@
 			files = (
 				D019F4D42C3EF33A00FD77FB /* DrawingEngine in Frameworks */,
 				D019F4D92C3EF6DA00FD77FB /* ScreenCapture in Frameworks */,
+				D0EB51212C416639009A89B4 /* MacOSHelpers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +81,6 @@
 				D0DCBABA2C39817300E9113C /* Resources */,
 				D0C445D62C3969840057C89B /* FilesStorage */,
 				D0FAB50F2C1DADC900C7A0D3 /* Views */,
-				D0E9E0C92C13891400BD8FFC /* Helpers+Funcitons.swift */,
 				D07E5F612C133E0300D0378B /* Preview Content */,
 				D07E5F642C133E0300D0378B /* ScreenShotApp.entitlements */,
 				D07E5F5B2C133E0200D0378B /* ScreenShotAppApp.swift */,
@@ -121,7 +118,6 @@
 			children = (
 				D0DCBABB2C39858E00E9113C /* SettingsView.swift */,
 				D0DCBABE2C39862700E9113C /* KeyboardShortcutSettingsView.swift */,
-				D0DCBAC02C39866200E9113C /* MenubarSettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -192,6 +188,7 @@
 			packageProductDependencies = (
 				D019F4D32C3EF33A00FD77FB /* DrawingEngine */,
 				D019F4D82C3EF6DA00FD77FB /* ScreenCapture */,
+				D0EB51202C416639009A89B4 /* MacOSHelpers */,
 			);
 			productName = ScreenShotApp;
 			productReference = D07E5F582C133E0200D0378B /* ScreenShotApp.app */;
@@ -224,6 +221,7 @@
 			packageReferences = (
 				D019F4D22C3EF33900FD77FB /* XCLocalSwiftPackageReference "DrawingEngine" */,
 				D019F4D72C3EF6DA00FD77FB /* XCLocalSwiftPackageReference "ScreenCapture" */,
+				D0EB511F2C416639009A89B4 /* XCLocalSwiftPackageReference "MacOSHelpers" */,
 			);
 			productRefGroup = D07E5F592C133E0200D0378B /* Products */;
 			projectDirPath = "";
@@ -251,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0E9E0CA2C13891400BD8FFC /* Helpers+Funcitons.swift in Sources */,
 				D09C9F0D2C23282B00FAA8A2 /* ImageEditorView.swift in Sources */,
 				D0DCBAC42C3986EA00E9113C /* MenubarContentView.swift in Sources */,
 				D0DCBAC62C398D2400E9113C /* ButtonsCaptureActionView.swift in Sources */,
@@ -260,7 +257,6 @@
 				D0DCBABF2C39862700E9113C /* KeyboardShortcutSettingsView.swift in Sources */,
 				D0EB511D2C4162CE009A89B4 /* ActionsCommands.swift in Sources */,
 				D024E6842C24C14E00AE6268 /* ImageEditorButtonsView.swift in Sources */,
-				D0DCBAC12C39866200E9113C /* MenubarSettingsView.swift in Sources */,
 				D0FAB5112C1DADD600C7A0D3 /* OverlayView.swift in Sources */,
 				D0DCBABC2C39858E00E9113C /* SettingsView.swift in Sources */,
 				D07E5F5E2C133E0200D0378B /* ContentView.swift in Sources */,
@@ -487,6 +483,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ScreenCapture;
 		};
+		D0EB511F2C416639009A89B4 /* XCLocalSwiftPackageReference "MacOSHelpers" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MacOSHelpers;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -497,6 +497,10 @@
 		D019F4D82C3EF6DA00FD77FB /* ScreenCapture */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ScreenCapture;
+		};
+		D0EB51202C416639009A89B4 /* MacOSHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MacOSHelpers;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

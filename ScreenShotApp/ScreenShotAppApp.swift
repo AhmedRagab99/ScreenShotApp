@@ -8,8 +8,6 @@
 import SwiftUI
 import ScreenCapture
 
-
-
 @main
 struct ScreenShotAppApp: App {
     @StateObject var screenshotManger = ScreenCaptureManger()

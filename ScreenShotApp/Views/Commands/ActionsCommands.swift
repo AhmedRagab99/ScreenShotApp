@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ScreenCapture
+import MacOSHelpers
 
 struct ActionsCommands: Commands {
     @ObservedObject var screenshotManger: ScreenCaptureManger
